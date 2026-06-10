@@ -1,6 +1,4 @@
-  body {
-  background: #f5f7fb;
-  }
+
 
   .auth-left {
   background:
@@ -353,3 +351,145 @@
 
   font-size:20px;
   }
+#preloader{
+    position:fixed;
+    inset:0;
+    z-index:999999;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(2px);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.loader-content{
+    text-align:center;
+}
+
+.loader-icon{
+    width:70px;
+    height:70px;
+    margin:auto;
+    border-radius:50%;
+    background:#6259ca15;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.loader-icon i{
+    font-size:32px;
+    color:#6259ca;
+}
+
+.loader-content h5{
+    margin:15px 0 5px;
+    color:#6259ca;
+    font-weight:600;
+}
+
+.loader-content p{
+    margin:0 0 15px;
+    color:#6c757d;
+    font-size:13px;
+}
+
+.loader-dots{
+    display:flex;
+    justify-content:center;
+    gap:6px;
+}
+
+.loader-dots span{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#6259ca;
+    animation:bounce 1.2s infinite;
+}
+
+.loader-dots span:nth-child(2){
+    animation-delay:.2s;
+}
+
+.loader-dots span:nth-child(3){
+    animation-delay:.4s;
+}
+
+@keyframes bounce{
+    0%,80%,100%{
+        transform:scale(.5);
+        opacity:.5;
+    }
+    40%{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.form-section{
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:25px;
+    background:#fff;
+}
+
+.form-section legend{
+    float:none;
+    width:auto;
+    padding:0 10px;
+    margin-bottom:0;
+    font-size:12px !important;
+    font-weight:600;
+    color:#6259ca;
+}
+
+
+.vendor-preview-icon{
+
+    width:80px;
+    height:80px;
+
+    border-radius:20px;
+
+    background:#6259ca;
+
+    color:#fff;
+
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:32px;
+}
+
+.timeline-item{
+
+    position:relative;
+
+    padding-left:30px;
+
+    margin-bottom:25px;
+}
+
+.timeline-item::before{
+
+    content:"";
+
+    width:12px;
+    height:12px;
+
+    background:#6259ca;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    left:0;
+    top:6px;
+}

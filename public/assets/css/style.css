@@ -5181,6 +5181,7 @@ Width
   display: block;
   color: #8f9cc0;
   font-weight: 500;
+  font-size:12px;
 }
 
 .form-text {
@@ -11932,7 +11933,7 @@ pre .tag {
 
 /** page-header-breadcrumb **/
 .page-header-breadcrumb {
-  margin-block: 1.75rem !important;
+  margin-block: 1rem !important;
 }
 
 /** index page **/
@@ -15257,7 +15258,6 @@ table.dataTable > thead .sorting_asc:before,
 table.dataTable > thead .sorting_asc_disabled:before,
 table.dataTable > thead .sorting_desc:before,
 table.dataTable > thead .sorting_desc_disabled:before {
-  content: "\f235" !important;
   font-family: bootstrap-icons !important;
   position: absolute;
   inset-inline-end: 0.8rem !important;
@@ -15270,7 +15270,7 @@ table.dataTable > thead .sorting_asc:after,
 table.dataTable > thead .sorting_asc_disabled:after,
 table.dataTable > thead .sorting_desc:after,
 table.dataTable > thead .sorting_desc_disabled:after {
-  content: "\f229" !important;
+
   font-family: bootstrap-icons !important;
   position: absolute;
   inset-inline-end: 0.8rem !important;
@@ -26577,7 +26577,7 @@ ul.inbox-pagination {
 }
 
 .fs-24 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .fs-25 {
@@ -27201,4 +27201,10 @@ h4, .h4 {
   .wd-lg-20p {
     width: 20%;
   }
+}
+
+
+/* custom css */
+.breadcrumb-item{
+  font-size: 12px !important;
 }

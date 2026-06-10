@@ -36,31 +36,22 @@
                                     <li class="slide has-sub"> <a href="javascript:void(0);" class="side-menu__item">
                                             <span class="shape1"></span> <span class="shape2"></span> <i
                                                 class="ti-wallet side-menu__icon"></i> <span
-                                                class="side-menu__label">Crypto Currencies</span> <i
+                                                class="side-menu__label">Vendor Management</span> <i
                                                 class="fe fe-chevron-right side-menu__angle"></i> </a>
                                         <ul class="slide-menu child1"
                                             style="position: relative; left: 0px; top: 0px; margin: 0px; transform: translate3d(127.5px, 220px, 0px);"
                                             data-popper-placement="bottom">
-                                            <li class="slide side-menu__label1"> <a href="javascript:void(0)">Crypto
-                                                    Currencies</a> </li>
                                             <li class="slide"> <a href="crypto-dashboard.html"
-                                                    class="side-menu__item">Dashboard</a> </li>
-                                            <li class="slide"> <a href="crypto-market.html"
-                                                    class="side-menu__item">Marketcap</a> </li>
-                                            <li class="slide"> <a href="crypto-currency-exchange.html"
-                                                    class="side-menu__item">Currency exchange</a> </li>
-                                            <li class="slide"> <a href="crypto-buy-sell.html"
-                                                    class="side-menu__item">Buy &amp; Sell</a> </li>
-                                            <li class="slide"> <a href="crypto-wallet.html"
-                                                    class="side-menu__item">Wallet</a> </li>
-                                            <li class="slide"> <a href="crypto-transactions.html"
-                                                    class="side-menu__item">Transactions</a> </li>
+                                                    class="side-menu__item">Create</a> </li>
+                                            <li class="slide"> <a href="{{ route('vendor.index') }}"
+                                                    class="side-menu__item">Vendors</a> </li>
+                                           
                                         </ul>
                                     </li> <!-- End::slide --> <!-- Start::slide -->
                                     <li class="slide has-sub"> <a href="javascript:void(0);" class="side-menu__item">
                                             <span class="shape1"></span> <span class="shape2"></span> <i
-                                                class="ti-shopping-cart-full side-menu__icon"></i> <span
-                                                class="side-menu__label">ECommerce</span> <i
+                                                class="ti-home side-menu__icon"></i> <span
+                                                class="side-menu__label">School Management</span> <i
                                                 class="fe fe-chevron-right side-menu__angle"></i> </a>
                                         <ul class="slide-menu child1"
                                             style="position: relative; left: 0px; top: 0px; margin: 0px; transform: translate3d(127.5px, 267.5px, 0px);"
@@ -68,7 +59,7 @@
                                             <li class="slide side-menu__label1"> <a
                                                     href="javascript:void(0)">E-Commerce</a> </li>
                                             <li class="slide"> <a href="ecommerce-dashboard.html"
-                                                    class="side-menu__item">Dashboard</a> </li>
+                                                    class="side-menu__item">Create</a> </li>
                                             <li class="slide"> <a href="ecommerce-products.html"
                                                     class="side-menu__item">Products</a> </li>
                                             <li class="slide"> <a href="ecommerce-product-details.html"
