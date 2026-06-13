@@ -84,3 +84,21 @@ $(document).ready(function () {
     });
 
 });
+
+$(document).on('click', '.paginate_button', function (e) {
+
+    e.preventDefault();
+
+    let page = $(this).data('dt-idx');
+
+    if (!page || page < 1) {
+        return;
+    }
+
+    let url = new URL(window.location.href);
+
+    url.searchParams.set('page', page);
+
+    window.location.href = url.toString();
+
+});

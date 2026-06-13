@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\File;
+use App\Models\RolePermission\Role;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -58,14 +59,12 @@ if (!function_exists('formateDate')) {
     }
 
     if (!function_exists('getFileUrl')) {
-        function getFileUrl(?int $fileId, string $default = 'images/no_image.png'): string
+        function getFileUrl($fileId, string $default = 'images/no_image.png'): string
         {
             if (!$fileId) {
                 return asset($default);
             }
-
             $file = File::find($fileId);
-
             if (!$file) {
                 return asset($default);
             }
@@ -94,6 +93,13 @@ if (!function_exists('deleteFile')) {
     }
 }
 
+
+if(!function_exists('role')){
+    function role($search){
+        return Role::where($search)->first();
+    }
+}
+
 if (!function_exists('emailButton')) {
     function emailButton(string $url, string $text): string
     {
@@ -111,7 +117,7 @@ if (!function_exists('emailButton')) {
    '>
    {$text} &nbsp;→
 </a>";
-    }
+}
 }
 
 ?>

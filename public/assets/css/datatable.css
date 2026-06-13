@@ -105,7 +105,7 @@ table.dataTable thead th {
 
 table.dataTable thead th.sorting_asc,
 table.dataTable thead th.sorting_desc {
-    background: #eff6ff !important;
+    background: #EAEDF7 !important;
     color: #2563eb !important;
 }
 
@@ -311,7 +311,7 @@ table.dataTable thead th.sorting_desc {
 /* First Sorted Column */
 
 table.dataTable tbody td.sorting_1 {
-    background: #f4f8ff !important;
+    background: #EAEDF7 !important;
 }
 
 /* Second Sorted Column */

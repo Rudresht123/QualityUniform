@@ -530,3 +530,145 @@ headerbtn1.forEach((button) => {
   });
 });
 /* for notifications dropdown */
+
+
+
+
+// Logut js
+function logout() {
+
+    Swal.fire({
+
+        title: "Logout?",
+
+        text: "Are you sure you want to logout?",
+
+        icon: "warning",
+
+        showCancelButton: true,
+
+        confirmButtonText: "Yes, Logout",
+
+        cancelButtonText: "Cancel",
+
+        buttonsStyling: false,
+
+        customClass: {
+
+            confirmButton: "btn btn-primary me-2",
+
+            cancelButton: "btn btn-danger"
+
+        }
+
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+
+            $.ajax({
+
+                url: "/logout",
+
+                type: "POST",
+
+                headers: {
+
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+                },
+
+                success: function(response) {
+
+                    Swal.fire({
+
+                        title: "Success!",
+
+                        text: "Logout Successfully",
+
+                        icon: "success",
+
+                        buttonsStyling: false,
+
+                        confirmButtonText: "OK",
+
+                        customClass: {
+
+                            confirmButton: "btn btn-success"
+
+                        }
+
+                    }).then(() => {
+
+                        window.location.href = "/login";
+
+                    });
+
+                },
+
+                error: function(xhr) {
+
+                    Swal.fire({
+
+                        title: "Error!",
+
+                        text: "Something went wrong.",
+
+                        icon: "error",
+
+                        buttonsStyling: false,
+
+                        confirmButtonText: "OK",
+
+                        customClass: {
+
+                            confirmButton: "btn btn-danger"
+
+                        }
+
+                    });
+
+                    console.log(xhr.responseText);
+
+                }
+
+            });
+
+        }
+
+    });
+
+}
+
+
+
+// Server Side Datatable
+$(function () {
+
+    $('.serversideDatatable').each(function () {
+
+        let table = $(this);
+
+        table.DataTable({
+
+            processing: true,
+            serverSide: true,
+
+            ajax: table.data('url'),
+
+            columns: table.data('columns'),
+
+            pageLength: 10,
+
+            lengthMenu: [
+                [10, 25, 50, 100],
+                [10, 25, 50, 100]
+            ],
+
+            responsive: true,
+            autoWidth: false
+
+        });
+
+    });
+
+});

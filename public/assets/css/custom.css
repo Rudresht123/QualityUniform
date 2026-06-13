@@ -493,3 +493,135 @@
     left:0;
     top:6px;
 }
+
+
+/* Edit Delete Button css */
+.action-btn{
+    width:34px;
+    height:34px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:none;
+    border-radius:6px;
+    background:#f8f9fa;
+    color:#6c757d;
+    transition:.2s;
+}
+
+.editUrl:hover{
+    background:#e7f1ff;
+    color:#0d6efd;
+}
+
+.deleteBtn:hover{
+    background:#fdeaea;
+    color:#dc3545;
+}
+.action-badge{
+    border:none;
+    border-radius:6px;
+    padding:6px 8px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.edit-badge{
+    background:#e8f1ff;
+    color:#0d6efd;
+}
+
+.edit-badge:hover{
+    background:#d7e8ff;
+    color:#0a58ca;
+}
+
+.delete-badge{
+    background:#fdeaea;
+    color:#dc3545;
+}
+
+.delete-badge:hover{
+    background:#f9d7d9;
+    color:#b02a37;
+}
+
+.show-badge{
+    background:#e0f7fa;
+    color:#00acc1;
+}
+
+.show-badge:hover{
+    background:#b2ebf2;
+    color:#00838f;
+}
+
+
+.custom-delete-popup {
+    border-radius: 16px;
+}
+
+.swal-action-buttons {
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.delete-confirm-btn,
+.delete-cancel-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+    height: 44px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all .2s ease;
+}
+
+.delete-confirm-btn {
+    background: #dc3545;
+    color: #fff;
+    border: none;
+}
+
+.delete-confirm-btn:hover {
+    transform: translateY(-1px);
+}
+
+.delete-cancel-btn {
+    background: #f8f9fa;
+    color: #495057;
+    border: 1px solid #dee2e6;
+}
+
+.delete-cancel-btn:hover {
+    background: #e9ecef;
+}
+
+.btn-content {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1;
+}
+
+.btn-content i {
+    font-size: 18px;
+}
+.swal2-actions{
+    display: flex;
+    gap: 20px !important;
+}
+.view-badge {
+    color: #0d6efd;
+    background: rgba(13, 110, 253, 0.12);
+}
+
+.view-badge:hover {
+    color: #fff;
+    background: #0d6efd;
+}

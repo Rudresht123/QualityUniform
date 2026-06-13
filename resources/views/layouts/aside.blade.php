@@ -41,7 +41,7 @@
                                         <ul class="slide-menu child1"
                                             style="position: relative; left: 0px; top: 0px; margin: 0px; transform: translate3d(127.5px, 220px, 0px);"
                                             data-popper-placement="bottom">
-                                            <li class="slide"> <a href="crypto-dashboard.html"
+                                            <li class="slide"> <a href="{{ route('vendor.create') }}"
                                                     class="side-menu__item">Create</a> </li>
                                             <li class="slide"> <a href="{{ route('vendor.index') }}"
                                                     class="side-menu__item">Vendors</a> </li>
