@@ -624,4 +624,58 @@
 .view-badge:hover {
     color: #fff;
     background: #0d6efd;
+}.back-icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px !important;
+    color: #6c757d;
+    text-decoration: none;
+}
+.back-icon i{
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.back-icon i{
+    transition: all .3s ease;
+}
+
+.back-icon:hover i{
+    transform: translateX(-6px);
+}
+
+/* Interactive Dashboard Cards */
+.custom-card {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+.custom-card .rounded-3, .custom-card .rounded-circle {
+    transition: all 0.3s ease;
+}
+
+.custom-card:hover .rounded-3, .custom-card:hover .rounded-circle {
+    transform: scale(1.1);
+}
+
+.list-group-item-action {
+    transition: all 0.2s ease;
+}
+
+.list-group-item-action:hover {
+    transform: translateX(5px);
+    background-color: rgba(var(--bs-primary-rgb), 0.05) !important;
+}
+
+.tracking-wider {
+    letter-spacing: 0.05em;
+}
+
+.fs-14 {
+    font-size: 14px;
 }

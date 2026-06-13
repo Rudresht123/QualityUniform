@@ -1,65 +1,130 @@
 <?php
 
-namespace App\Http\Controllers\Modules\SuperAdmin;
+namespace App\Http\Controllers\SuperAdmin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
+use App\Http\Requests\SuperAdmin\StoreSchoolRequest;
+use App\Http\Requests\SuperAdmin\UpdateSchoolRequest;
+use App\Models\SuperAdmin\School;
+use App\Services\SchoolService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
+use Throwable;
 
-class SchoolController extends Controller
+class SchoolController extends BaseController
 {
     /**
-     * Display a listing of the resource.
+     * @var SchoolService
      */
-    public function index()
+    protected SchoolService $schoolService;
+
+    /**
+     * @var string
+     */
+    protected string $title = 'School Management';
+
+    /**
+     * SchoolController constructor.
+     *
+     * @param SchoolService $schoolService
+     */
+    public function __construct(SchoolService $schoolService)
     {
-        //
+        $this->schoolService = $schoolService;
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of schools.
+     *
+     * @param Request $request
+     * @return View
      */
-    public function create()
+    public function index(Request $request): View
     {
-        //
+        $schools = $this->schoolService->getAllSchools();
+        return view('super-admin.school.index', compact('schools'), $this->pageData($this->title, 'Home|Schools'));
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Show the form for creating a new school.
+     *
+     * @return View
      */
-    public function store(Request $request)
+    public function create(): View
     {
-        //
+        return view('super-admin.school.create', $this->pageData('Create School', 'Home|Schools|Create'));
     }
 
     /**
-     * Display the specified resource.
+     * Store a newly created school in storage.
+     *
+     * @param StoreSchoolRequest $request
+     * @return RedirectResponse
      */
-    public function show(string $id)
+    public function store(StoreSchoolRequest $request): RedirectResponse
     {
-        //
+        try {
+            $this->schoolService->createSchool($request->validated(), $request->file('logo'));
+
+            return redirect()->route('school.index')->with('success', 'School created successfully.');
+        } catch (Throwable $e) {
+            return back()
+                ->withInput()
+                ->with('error', 'Failed to create school: ' . $e->getMessage());
+        }
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display the specified school.
+     *
+     * @param School $school
+     * @return View
      */
-    public function edit(string $id)
+    public function show(School $school): View
     {
-        //
+        return view('super-admin.school.show', compact('school'), $this->pageData('School Details', 'Home|Schools|View'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Show the form for editing the specified school.
+     *
+     * @param School $school
+     * @return View
      */
-    public function update(Request $request, string $id)
+    public function edit(School $school): View
     {
-        //
+        return view('super-admin.school.edit', compact('school'), $this->pageData('Edit School', 'Home|Schools|Edit'));
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Update the specified school in storage.
+     *
+     * @param UpdateSchoolRequest $request
+     * @param School $school
+     * @return RedirectResponse
      */
-    public function destroy(string $id)
+    public function update(UpdateSchoolRequest $request, School $school): RedirectResponse
     {
-        //
+        try {
+            $this->schoolService->updateSchool($school->school_id, $request->validated(), $request->file('logo'));
+
+            return redirect()->route('school.index')->with('success', 'School updated successfully.');
+        } catch (Throwable $e) {
+            return back()
+                ->withInput()
+                ->with('error', 'Failed to update school: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Remove the specified school from storage.
+     *
+     * @param School $school
+     * @return RedirectResponse
+     */
+    public function destroy(School $school): RedirectResponse
+    {
+        return redirect()->route('school.index')->with('error', 'Delete functionality is handled globally.');
     }
 }

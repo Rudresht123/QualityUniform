@@ -62,6 +62,7 @@ return new class extends Migration
             $table->index('city');
             $table->index('state');
             $table->index('is_active');
+               $table->softDeletes();
         });
     }
 

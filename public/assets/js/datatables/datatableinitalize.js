@@ -17,11 +17,11 @@ $(document).ready(function () {
            Page Length
         ================================= */
 
-        pageLength: 10,
+        pageLength: 15,
 
         lengthMenu: [
-            [10, 25, 50, 100],
-            [10, 25, 50, 100]
+            [10,15, 25, 50, 100,200,500],
+            [10,15, 25, 50, 100,200,500]
         ],
 
         /* =================================
@@ -82,23 +82,5 @@ $(document).ready(function () {
         ]
 
     });
-
-});
-
-$(document).on('click', '.paginate_button', function (e) {
-
-    e.preventDefault();
-
-    let page = $(this).data('dt-idx');
-
-    if (!page || page < 1) {
-        return;
-    }
-
-    let url = new URL(window.location.href);
-
-    url.searchParams.set('page', page);
-
-    window.location.href = url.toString();
 
 });

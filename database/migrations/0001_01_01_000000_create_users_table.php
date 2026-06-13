@@ -12,9 +12,6 @@ return new class extends Migration {
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-
-
-
             $table->string('name', 150);
 
             $table->string('email', 150)->nullable()->unique();
@@ -22,9 +19,6 @@ return new class extends Migration {
             $table->string('phone', 15)->nullable()->unique();
 
             $table->string('password')->nullable();
-
-            $table->enum('role', ['super_admin', 'admin', 'school', 'vendor', 'parent']);
-
             $table->boolean('is_active')->default(true);
 
             $table->timestamp('email_verified_at')->nullable();

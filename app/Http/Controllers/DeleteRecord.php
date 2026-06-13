@@ -5,38 +5,27 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class DeleteRecord extends Controller
 {
-    public function deleteRecord(string $table,$id)
+    public function deleteRecord(string $table, string $id)
     {
-        if ($table == 'vendors') {
-            $affected = DB::table($table)
-                ->where('vendor_id', $id)
-                ->update([
-                    'deleted_at' => now(),
-                ]);
-        } else {
-            $affected = DB::table($table)
-                ->where('id', $id)
-                ->update([
-                    'deleted_at' => now(),
-                ]);
-        }
+        $primaryKey = DB::selectOne("
+        SHOW KEYS
+        FROM {$table}
+        WHERE Key_name = 'PRIMARY'
+    ")->Column_name;
 
-        if (!$affected) {
-            return response()->json(
-                [
-                    'status' => false,
-                    'message' => 'Record not found.',
-                ],
-                404,
-            );
-        }
+        $affected = DB::table($table)
+            ->where($primaryKey, $id)
+            ->update([
+                'deleted_at' => now(),
+            ]);
 
         return response()->json([
-            'status' => true,
-            'message' => 'Record deleted successfully.',
+            'status' => (bool) $affected,
+            'message' => $affected ? 'Record deleted successfully.' : 'Record not found.',
         ]);
     }
 }

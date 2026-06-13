@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kwality Uniform - Software</title>
+    <link rel="icon" href="{{ asset("assets/icons/fav.png") }}">
 
     {{-- links for the css --}}
 
@@ -36,6 +37,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/datatable.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/toast.css') }}">
 
+    @stack('styles')
+
 </head>
 
 <body>
@@ -52,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
     @if(session('error'))
         alertify.error(@json(session('error')));
     @endif
+
 
     @if(session('warning'))
         alertify.warning(@json(session('warning')));
@@ -108,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <script src="{{ asset('assets/libs/jsvectormap/maps/world-merc.js') }}"></script>
     <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/js/index.js') }}"></script>
+    <script src="{{ asset('assets/js/dashboard-charts.js') }}"></script>
     <script src="{{ asset('assets/js/custom-switcher.min.js') }}"></script>
     <script src="{{ asset('assets/js/defaultmenu.min.js') }}"></script>
     <script src="{{ asset('assets/js/index.js') }}"></script>
@@ -355,6 +360,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         });
     </script>
+
+    @stack('scripts')
 </body>
 
 </html>

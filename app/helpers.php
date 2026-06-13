@@ -96,9 +96,11 @@ if (!function_exists('deleteFile')) {
 
 if(!function_exists('role')){
     function role($search){
-        return Role::where($search)->first();
+        return Role::where($search)->first()->id;
     }
 }
+
+
 
 if (!function_exists('emailButton')) {
     function emailButton(string $url, string $text): string

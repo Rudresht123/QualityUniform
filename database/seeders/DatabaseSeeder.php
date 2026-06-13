@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\SuperAdmin\School;
 use App\Models\User;
 use App\Models\SuperAdmin\Schools;
 use App\Models\SuperAdmin\Vendor;
@@ -18,6 +19,8 @@ class DatabaseSeeder extends Seeder
     {
         // Super Admin
 
+        $this->call([RoleSeeder::class]);
+
         $this->call([SuperAdminSeeder::class]);
 
         $this->call([RoleSeeder::class]);
@@ -26,7 +29,7 @@ class DatabaseSeeder extends Seeder
 
         // Fake Schools
 
-        Schools::factory()->count(100)->create();
+        School::factory()->count(100)->create();
 
         // Fake Vendors
 

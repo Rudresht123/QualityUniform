@@ -18,9 +18,6 @@ class UserFactory extends Factory
             'phone' => $this->faker->unique()->numerify('##########'),
 
             'password' => Hash::make('password'),
-
-            'role' => 'vendor',
-
             'is_active' => true,
 
             'email_verified_at' => now(),

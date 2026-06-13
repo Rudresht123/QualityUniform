@@ -30,13 +30,11 @@ class VendorService
                     $data['logo_url'] = $this->handleLogoUpload($logo);
                 }
 
-                
-
                 $user = $this->userService->create([
                     'name' => $data['business_name'],
                     'email' => $data['email'],
                     'phone' => $data['phone'],
-                    'role' => role(["name"=>'vendorc']),
+                    'role' => 'vendor',
                     'is_active' => true,
                 ]);
 
@@ -55,6 +53,11 @@ class VendorService
                 throw new Exception('Failed to create vendor: ' . $e->getMessage());
             }
         });
+    }
+
+    public function getAllVendor()
+    {
+        return Vendor::latest()->get();
     }
 
     /**

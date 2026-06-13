@@ -40,7 +40,7 @@ class VendorController extends BaseController
      */
     public function index(Request $request): View
     {
-        $vendors = Vendor::orderBy('created_at','desc')->get();
+        $vendors = $this->vendorService->getAllVendor();
         return view('super-admin.vendor.index', compact('vendors'), $this->pageData($this->title, 'Home|Vendors'));
     }
 

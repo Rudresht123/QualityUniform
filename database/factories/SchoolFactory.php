@@ -2,13 +2,13 @@
 namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
-use App\Models\SuperAdmin\Schools;
+use App\Models\SuperAdmin\School;
 
 use Illuminate\Support\Str;
 
 class SchoolFactory extends Factory
 {
-    protected $model = Schools::class;
+    protected $model = School::class;
 
     public function definition(): array
     {
@@ -21,7 +21,6 @@ class SchoolFactory extends Factory
 
             'user_id' => User::factory([
                 'name' => $schoolName,
-                'role' => 'school',
             ]),
 
         

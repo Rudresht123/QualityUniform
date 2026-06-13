@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Permission;
+use App\Models\RolePermission\Permission;
 
 class PermissionSeeder extends Seeder
 {
@@ -11,42 +11,53 @@ class PermissionSeeder extends Seeder
     {
         $modules = [
 
-            'vendor' => [
-                'vendor_view',
-                'vendor_create',
-                'vendor_edit',
-                'vendor_delete',
+            'Vendor Management' => [
+                'vendor.view'   => 'View Vendors',
+                'vendor.create' => 'Create Vendor',
+                'vendor.edit'   => 'Edit Vendor',
+                'vendor.delete' => 'Delete Vendor',
             ],
 
-            'school' => [
-                'school_view',
-                'school_create',
-                'school_edit',
-                'school_delete',
+            'School Management' => [
+                'school.view'   => 'View Schools',
+                'school.create' => 'Create School',
+                'school.edit'   => 'Edit School',
+                'school.delete' => 'Delete School',
             ],
 
-            'product' => [
-                'product_view',
-                'product_create',
-                'product_edit',
-                'product_delete',
+            'Role Management' => [
+                'role.view'   => 'View Roles',
+                'role.create' => 'Create Role',
+                'role.edit'   => 'Edit Role',
+                'role.delete' => 'Delete Role',
             ],
 
-            'order' => [
-                'order_view',
-                'order_edit',
+            'School Class Management' => [
+                'school_class.view'   => 'View School Classes',
+                'school_class.create' => 'Create School Class',
+                'school_class.edit'   => 'Edit School Class',
+                'school_class.delete' => 'Delete School Class',
             ],
+
         ];
 
-        foreach ($modules as $permissions) {
+        foreach ($modules as $group => $permissions) {
 
-            foreach ($permissions as $permission) {
+            foreach ($permissions as $slug => $name) {
 
-                Permission::firstOrCreate([
-                    'name' => $permission,
-                    'guard_name' => 'web',
-                ]);
+                Permission::updateOrCreate(
+                    [
+                        'name'       => $slug,
+                        'guard_name' => 'web',
+                    ],
+                    [
+                        'permission_name' => $name,
+                        'group_name'      => $group,
+                    ]
+                );
+
             }
+
         }
     }
 }

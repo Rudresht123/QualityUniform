@@ -5,6 +5,7 @@
 @endphp
 <div class="d-md-flex d-block align-items-center justify-content-between page-header-breadcrumb">
     <div>
+        
         <h2 class="main-content-title fs-24 mb-1">{{ $title ?? 'Welcome To Dashboard' }}</h2>
         <ol class="breadcrumb mb-0">
             @foreach ($items as $item)
@@ -28,9 +29,7 @@
             @endforeach
         </ol>
     </div>
-    <div class="d-flex">
-        <div class="justify-content-center"></div>
-    </div>
+
 </div>
 
 
