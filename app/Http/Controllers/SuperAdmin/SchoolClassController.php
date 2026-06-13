@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Throwable;
 
-class SchoolClassController extends BaseController
+class SchoolClassController extends BaseControlle
 {
     /**
      * @var string
